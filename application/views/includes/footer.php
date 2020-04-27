@@ -20,6 +20,13 @@
    <!-- DataTables -->
 <script src="<?php echo base_url();?>assets/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      $('#tabeluser').DataTable();
+  });
+  </script>
     <script type="text/javascript">
         var windowURL = window.location.href;
         pageURL = windowURL.substring(0, windowURL.lastIndexOf('/'));
