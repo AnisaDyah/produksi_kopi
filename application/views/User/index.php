@@ -28,7 +28,7 @@
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-                  <table id="datatable-buttons" class="table table-striped table-bordered">
+                  <table id="example2" class="table table-striped table-bordered">
                       <thead>
                         <tr>
                           <th width="20%">ID User</th>

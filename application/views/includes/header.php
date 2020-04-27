@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title><?php echo "Produksi Kopi" ?></title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+    <!-- jQuery 2.1.4 -->
+    <script src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>
+    <script type="text/javascript">
+        var baseURL = "<?php echo base_url(); ?>";
+    </script>
     <!-- Bootstrap 3.3.4 -->
     <link href="<?php echo base_url(); ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />    
     <!-- FontAwesome 4.3.0 -->
@@ -12,12 +17,8 @@
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
     <link href="<?php echo base_url(); ?>assets/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
-     <!-- Datatables -->
-     <link href="<?php echo base_url('assets/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css')?>" rel="stylesheet">
-    <link href="<?php echo base_url('assets/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css')?>" rel="stylesheet">
+     <!-- DataTables -->
+  <link rel="stylesheet" href="<?php echo base_url(); ?>assets/datatables.net-bs/css/dataTables.bootstrap.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
@@ -27,11 +28,7 @@
     		font-weight: normal;
     	}
     </style>
-    <!-- jQuery 2.1.4 -->
-    <script src="<?php echo base_url(); ?>assets/js/jQuery-2.1.4.min.js"></script>
-    <script type="text/javascript">
-        var baseURL = "<?php echo base_url(); ?>";
-    </script>
+    
     
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -135,7 +132,7 @@
               </a>
             </li> -->
             <li class="treeview">
-              <a href="#" >
+              <a href="<?php echo base_url(); ?>Jenis_kopi" >
                 <i class="fa fa-ticket"></i>
                 <span>Jenis Kopi</span>
               </a>
