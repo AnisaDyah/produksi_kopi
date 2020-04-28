@@ -22,8 +22,8 @@
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <style>
     	.error{
     		color:red;
@@ -40,19 +40,19 @@
     <![endif]-->
   </head>
   <!-- <body class="sidebar-mini skin-black-light"> -->
-  <body class="skin-blue sidebar-mini">
+  <body class="hold-transition skin-blue sidebar-mini">
     <div class="wrapper">
       
       <header class="main-header">
         <!-- Logo -->
-        <a href="<?php echo base_url(); ?>" class="logo">
+        <a href="#" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>CI</b>AS</span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Forecasting</b></span>
         </a>
         <!-- Header Navbar: style can be found in header.less -->
-        <nav class="navbar navbar-static-top" role="navigation">
+        <nav class="navbar navbar-static-top">
           <!-- Sidebar toggle button-->
           <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
@@ -76,12 +76,13 @@
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
-                    <div class="pull-left">
-                      <a href="<?php echo base_url(); ?>loadChangePass" class="btn btn-default btn-flat"><i class="fa fa-history"></i> Histori</a>
-                    </div>
-                    <div class="pull-right">
+                  <div class="pull-right">
                       <a href="<?php echo base_url(); ?>login/logout" class="btn btn-default btn-flat"><i class="fa fa-sign-out"></i> Sign out</a>
                     </div>
+                    <div class="pull-left">
+                      <a href="<?php echo base_url(); ?>History" class="btn btn-default btn-flat"><i class="fa fa-history"></i> Histori</a>
+                    </div>
+                   
                   </li>
                 </ul>
               </li>
@@ -117,7 +118,7 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
-              <a href="<?php echo base_url(); ?>dashboard">
+              <a href="<?php echo base_url(); ?>Login/dashboard">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
@@ -149,7 +150,7 @@
               </a>
             </li> -->
             <li class="treeview">
-              <a href="#" >
+              <a href="<?php echo base_url(); ?>Produksi" >
                 <i class="fa fa-upload"></i>
                 <span>Data Produksi</span>
               </a>

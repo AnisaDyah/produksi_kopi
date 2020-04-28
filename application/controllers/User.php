@@ -13,10 +13,7 @@ class User extends BaseController
         $this->load->library('form_validation');
         $this->load->model('User_model');
 
-        // if($this->session->privilege != 'Administrator')
-        // {
-        //     redirect('home');
-        // }
+    
     }
 
     public function index()
@@ -56,7 +53,7 @@ class User extends BaseController
 
             if ($this->form_validation->run() != false) {
                 $result = $this->User_model->insert($data);
-               // helper_log("add", "menambahkan user");
+               helper_log("add", "menambahkan user");
                 if ($result) {
                     redirect('User');
                 }
@@ -102,14 +99,14 @@ class User extends BaseController
         );
 
         $this->User_model->update($id_user, $data);
-       // helper_log("edit", "mengubah data user");
+       helper_log("edit", "mengubah data user");
         redirect('User');
     }
 
     public function destroy($id_user)
     {
         $this->User_model->delete($id_user);
-        //helper_log("delete", "menghapus data user");
+        helper_log("delete", "menghapus data user");
         redirect('User');
     }
 

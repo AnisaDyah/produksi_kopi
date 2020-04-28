@@ -1,8 +1,8 @@
 <?php $this->load->view('includes/header'); ?>
-<div class="content-wrapper">
+<div class="content-wrapper" style="height: 610px">
   <section class="content-header">
     <h1>
-      Tambah Jenis Kopi
+      Tambah Data Jenis Kopi
     </h1>
   </section>
 
@@ -17,7 +17,11 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">
+              &nbsp;
             </h3>
+            <div class="box-tools pull-right">
+            
+            </div>
           </div>
           <!-- /.box-header -->
           <form role="form" action="<?php echo site_url('Jenis_kopi/store') ?>" method="post" enctype="multipart/form-data">

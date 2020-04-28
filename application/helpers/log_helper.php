@@ -18,7 +18,7 @@ function helper_log($tipe = "", $str = ""){
     elseif(strtolower($tipe) == "delete"){
         $log_tipe  = 4;
     }
-    elseif(strtolower($tipe) == "validasi"){
+    elseif(strtolower($tipe) == "peramalan"){
         $log_tipe  = 5;
     }
     else{

@@ -13,10 +13,7 @@ class Jenis_kopi extends BaseController
         $this->load->library('form_validation');
         $this->load->model('JenisKopi_model');
 
-        // if($this->session->privilege != 'Administrator')
-        // {
-        //     redirect('home');
-        // }
+        
     }
 
     public function index()
@@ -50,7 +47,7 @@ class Jenis_kopi extends BaseController
 
             if ($this->form_validation->run() != false) {
                 $result = $this->JenisKopi_model->insert($data);
-               //helper_log("add", "menambahkan jenis_kopi");
+               helper_log("add", "menambahkan jenis_kopi");
                 if ($result) {
                     redirect('jenis_kopi');
                 }
@@ -94,14 +91,14 @@ class Jenis_kopi extends BaseController
         );
 
         $this->JenisKopi_model->update($id_kopi, $data);
-       // helper_log("edit", "mengubah data jenis_kopi");
+       helper_log("edit", "mengubah data jenis_kopi");
         redirect('jenis_kopi');
     }
 
     public function destroy($id_kopi)
     {
         $this->JenisKopi_model->delete($id_kopi);
-        //helper_log("delete", "menghapus data jenis_kopi");
+        helper_log("delete", "menghapus data jenis_kopi");
         redirect('jenis_kopi');
     }
 

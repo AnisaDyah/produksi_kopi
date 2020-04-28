@@ -2,7 +2,7 @@
 <div class="content-wrapper" style="height: 610px">
   <section class="content-header">
     <h1>
-    Ubah Data Jenis Kopi
+      Tambah Data Produksi
     </h1>
   </section>
 
@@ -24,21 +24,34 @@
             </div>
           </div>
           <!-- /.box-header -->
-         
+          <form role="form" action="<?php echo site_url('Produksi/store') ?>" method="post" enctype="multipart/form-data">
             <div class="box-body">
-            <?php echo form_open('Jenis_kopi/update/'.$jenis_kopi->id_kopi); ?>
-             <?php echo form_hidden('id_kopi', $jenis_kopi->id_kopi) ?>
               <div class="form-group">
-                <label>Jenis Kopi</label>
-                <input type="text" name="jenis_kopi" value="<?php echo $jenis_kopi->jenis_kopi; ?>" class="form-control" required>
+                <label>tanggal</label>
+                <input type="text" name="tanggal" class="form-control" required>
               </div>
+              <div class="form-group">
+                <label>Jumlah</label>
+                <input type="text" name="jumlah" class="form-control" required>
+              </div>
+            
+            <div class="form-group">
+            <label> Jenis Kopi </label>
+                  <select class="form-control" name ="id_kopi" id="privilege"> 
+                  <option selected> --Pilih Jenis Kopi-- </option>
+                  <?php foreach ($jenis_kopi as $k) { ?>
+                  <option value="<?php echo $k->id_kopi?>"><?php echo $k->jenis_kopi?></option>
+                <?php } ?>
+                </select>
+            </div>
             </div>
             <div class="box-footer">
               <div class="form-group">
-              <a class="btn btn-info" href="<?php echo base_url('Jenis_kopi/index') ?>">Kembali</a>
+              <a class="btn btn-info" href="<?php echo base_url() ?>Produksi">Kembali</a>
                 <button type="submit" class="btn btn-primary">Ok</button>
               </div>
             </div>
+            
           </form>
           <!-- /.box-body -->
         </div>

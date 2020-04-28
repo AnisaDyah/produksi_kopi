@@ -42,6 +42,10 @@ class Login extends CI_Controller
         }
     }
 
+    public function dashboard()
+    { 
+        $this->load->view('dashboard');
+    }
     public function logout()
     { 
         $this->session->sess_destroy();

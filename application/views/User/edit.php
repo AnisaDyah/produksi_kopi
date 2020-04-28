@@ -1,8 +1,8 @@
 <?php $this->load->view('includes/header'); ?>
-<div class="content-wrapper">
+<div class="content-wrapper" style="height: 610px">
   <section class="content-header">
     <h1>
-      Edit Pelanggan
+      Edit Data User
     </h1>
   </section>
 
@@ -17,8 +17,11 @@
         <div class="box">
           <div class="box-header">
             <h3 class="box-title">
-            
+              &nbsp;
             </h3>
+            <div class="box-tools pull-right">
+            
+            </div>
           </div>
           <!-- /.box-header -->
          
