@@ -28,7 +28,7 @@
             <div class="box-body">
               <div class="form-group">
                 <label>tanggal</label>
-                <input type="text" name="tanggal" class="form-control" required>
+                <input type="text" name="tanggal" class="form-control" id="datepicker" required>
               </div>
               <div class="form-group">
                 <label>Jumlah</label>

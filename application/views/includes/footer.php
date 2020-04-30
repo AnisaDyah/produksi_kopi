@@ -22,12 +22,47 @@
 <script src="<?php echo base_url();?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script src="<?php echo base_url('assets/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') ?>"></script>
   <script type="text/javascript">
   $(document).ready(function() {
       $('#tabeluser').DataTable();
   });
   </script>
-  
+  <script>
+    $(function () {
+    //Date picker
+    $('#datepicker').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    $('#datepicker2').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    $('#datepicker3').datepicker({
+      autoclose: true,
+      format: 'yyyy-mm-dd'
+    })
+
+    //Date picker Bulan
+    $('#datepickerbulan').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+
+    $('#datepickerbulan2').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+    $('#datepickerbulan3').datepicker({
+      autoclose: true,
+      format: 'M yyyy'
+    })
+
+    
+  })</script>
     <script>
     $(function () {
     $('.select2').select2()

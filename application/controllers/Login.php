@@ -27,12 +27,13 @@ class Login extends CI_Controller
                 'id_user' => $set->id_user,
                 'username' => $set->username,
                 'id_user_level' => $set->id_user_level,
+                'email' => $set->email,
                 'status' => 'Logged'
             ];
             $this->session->set_userdata($log);            
 
             helper_log("Login", "Login");
-            redirect('/dashboard');
+            redirect('Login/dashboard');
 
           
         }

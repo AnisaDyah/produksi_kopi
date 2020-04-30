@@ -24,6 +24,7 @@
     <link href="<?php echo base_url(); ?>assets/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
     <style>
     	.error{
     		color:red;
@@ -63,15 +64,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="<?php echo base_url(); ?>assets/dist/img/avatar.png" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs"><?php echo "Administrator"; ?></span>
+                  <span class="hidden-xs"><?php echo $this->session->username ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="<?php echo base_url(); ?>assets/dist/img/avatar.png" class="img-circle" alt="User Image" />
                     <p>
-                      <?php echo "Administrator"; ?>
-                      <small><?php echo "Admin 1" ?></small>
+                    <?php echo $this->session->username ?>
+                      <small><?php echo $this->session->email ?></small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
@@ -99,7 +100,7 @@
           <img src="<?php echo base_url(); ?>assets/dist/img/avatar.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Administrator</p>
+          <p><?php echo $this->session->username ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -122,24 +123,28 @@
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span></i>
               </a>
             </li>
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>User">
                 <i class="fa fa-users"></i>
                 <span>Users</span>
               </a>
             </li>
+            <?php endif; ?>
                    <!-- <!-- <li class="treeview">
               <a href="#" >
                 <i class="fa fa-plane"></i>
                 <span>New Task</span>
               </a>
             </li> -->
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>Jenis_kopi" >
                 <i class="fa fa-ticket"></i>
                 <span>Jenis Kopi</span>
               </a>
             </li>
+            <?php endif; ?>
             <!-- <?php
            
             ?>
