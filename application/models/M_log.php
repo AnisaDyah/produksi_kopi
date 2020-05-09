@@ -14,4 +14,8 @@ class M_log extends CI_Model {
             $query = $this->db->get('histori');
             return $query->result();
         }
+        public function histori_user($id_user){
+            $query = $this->db->query("SELECT * FROM histori WHERE log_user='$id_user'")->result();
+            return $query;
+        }
 }

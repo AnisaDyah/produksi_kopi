@@ -13,15 +13,28 @@
 
         public function index()
         {
-            
+            $user_level=$this->session->userdata('id_user_level');
             $user = $this->User_model->get_user();
-            $riwayat = $this->M_log->histori_admin();
-            $user_level = $this->User_model->user_level();
-            $data = [
-                'user' => $user,
-                'riwayat'=>$riwayat,
-                'user_level'=> $user_level
-            ];
+            if($user_level == 1){
+                $riwayat = $this->M_log->histori_admin();
+                $user_level = $this->User_model->user_level();
+                $data = [
+                    'user' => $user,
+                    'riwayat'=>$riwayat,
+                    'user_level'=> $user_level
+                ];
+            }else{
+                $id_user=$this->session->userdata('id_user');
+                $riwayat = $this->M_log->histori_user($id_user);
+                $user_level = $this->User_model->user_level();
+                $data = [
+                    'user' => $user,
+                    'riwayat'=>$riwayat,
+                    'user_level'=> $user_level
+                ];
+            }
+            
+            
             $this->load->view('history', $data);
         }
 

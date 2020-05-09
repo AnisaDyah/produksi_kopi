@@ -1,10 +1,9 @@
-<?php $this->load->view('includes/header'); ?>
 
-        <!-- page content -->
-        <div class="content-wrapper" style="height: 900px">
+<?php $this->load->view('includes/header'); ?>
+<div class="content-wrapper" style="height: 900px">
   <section class="content-header">
     <h1>
-      Riwayat Admin
+     Riwayat
     </h1>
   </section>
 
@@ -21,18 +20,17 @@
             <h3 class="box-title">
               &nbsp;
             </h3>
-           
+            
           </div>
           <!-- /.box-header -->
           <div class="box-body">
-                    <table  class="table table-striped table-bordered" id="tabeluser">
+          <table  class="table table-striped table-bordered" id="tabeluser">
                       <thead>
                         <tr>
                           <th width="20%">Waktu</th>
-                          <th width="20%">User</th>
+                          <th width="20%">Username</th>
                           <th width="20%">User Level</th>
                           <th width="15%">Activity</th>
-                          <th width="1%"></th>
                          
                           
                           
@@ -76,7 +74,7 @@
                       
                       </tbody>
                     </table>
-                    </div>
+          </div>
           <!-- /.box-body -->
         </div>
         <!-- /.box -->
@@ -86,4 +84,5 @@
     <!-- /.row -->
   </section>
 </div>
-        <?php $this->load->view('includes/footer'); ?>
+<?php $this->load->view('includes/footer'); ?>
+        

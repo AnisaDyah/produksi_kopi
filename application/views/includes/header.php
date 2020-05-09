@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"/>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
     <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') ?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/morris.js/morris.css')?>">
     <style>
     	.error{
     		color:red;
@@ -41,7 +42,7 @@
     <![endif]-->
   </head>
   <!-- <body class="sidebar-mini skin-black-light"> -->
-  <body class="hold-transition skin-blue sidebar-mini">
+  <body class="skin-blue sidebar-mini">
     <div class="wrapper">
       
       <header class="main-header">
@@ -137,14 +138,13 @@
                 <span>New Task</span>
               </a>
             </li> -->
-            <?php if($this->session->userdata('id_user_level') == '1'): ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>Jenis_kopi" >
-                <i class="fa fa-ticket"></i>
+                <i class="fa fa-coffee"></i>
                 <span>Jenis Kopi</span>
               </a>
             </li>
-            <?php endif; ?>
+         
             <!-- <?php
            
             ?>
@@ -156,16 +156,33 @@
             </li> -->
             <li class="treeview">
               <a href="<?php echo base_url(); ?>Produksi" >
-                <i class="fa fa-upload"></i>
+                <i class="fa fa-table"></i>
                 <span>Data Produksi</span>
               </a>
             </li>
             <li class="treeview">
-              <a href="#" >
-                <i class="fa fa-files-o"></i>
+              <a href="<?php echo base_url(); ?>Produksi/laporan" >
+                <i class="fa fa-download"></i>
                 <span>Reports</span>
               </a>
             </li>
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Peramalan" >
+                <i class="fa fa-calculator"></i>
+                <span>Perhitungan Metode</span>
+              </a>
+            </li>
+            <?php endif; ?>
+
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Peramalan/peramalan1" >
+                <i class="fa fa-search"></i>
+                <span>Peramalan Produksi Kopi</span>
+              </a>
+            </li>
+
+
             <?php
             
             ?>

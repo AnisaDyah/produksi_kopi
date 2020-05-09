@@ -20,11 +20,13 @@
             <h3 class="box-title">
               &nbsp;
             </h3>
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
             <div class="box-tools pull-right">
               <a href="<?php echo site_url('Produksi/create'); ?>" type="button" class="btn btn-success">
                 <i class="fa fa-plus"> Tambah Data Produksi</i>
               </a>
             </div>
+            <?php endif;?>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -34,7 +36,9 @@
                   <th>Tanggal</th>
                   <th>Jumlah</th>
                   <th>Jenis Kopi</th>
+                  <?php if($this->session->userdata('id_user_level') == '1'): ?>
                   <th>Action</th>
+                  <?php endif;?>
                 </tr>
               </thead>
               <tbody>
@@ -53,6 +57,7 @@
                           }
                           ?>
                         </td>
+                  <?php if($this->session->userdata('id_user_level') == '1'): ?>
                   <td style="text-align: center">
                   <?php echo form_open('Produksi/destroy/'.$key->id_produksi)  ?>
                     <a href="<?php echo site_url('Produksi/edit/'.$key->id_produksi); ?>" title="Edit Nama Kategori" class="btn btn-primary">
@@ -62,6 +67,7 @@
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fa fa-close"></i></button>
                     <?php echo form_close() ?>
                   </td>
+                  <?php endif;?>
                 </tr>
               <?php endforeach ?>
               </tbody>

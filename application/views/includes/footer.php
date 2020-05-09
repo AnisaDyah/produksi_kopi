@@ -17,6 +17,8 @@
     <script src="<?php echo base_url(); ?>assets/dist/js/app.min.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js" type="text/javascript"></script>
     <script src="<?php echo base_url(); ?>assets/js/validation.js" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/raphael/raphael.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/morris.js/morris.min.js')?>"></script>
    <!-- DataTables -->
 <script src="<?php echo base_url();?>assets/datatables.net/js/jquery.dataTables.min.js"></script>
 <script src="<?php echo base_url();?>assets/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
@@ -77,5 +79,28 @@
     })
   })
     </script>
+
+    <script>
+  $(function () {
+    var line = new Morris.Line({
+      element: 'line-chart',
+      resize: true,
+      data: <?php echo $response_databiasa; ?>,
+      xkey: 'bulan',
+      ykeys: ['data', 'data_peramalan'],
+      labels: ['Data Real','Data Ramalan'],
+      parseTime: false,
+      xLabelAngle: 60,
+      lineColors: ['#3c8dbc', 'red'],
+      hideHover: 'auto'
+    });
+    
+    var legendItem = $('<span></span>').text('Data Asli'+' ').css('color', '#3c8dbc');
+    $('#legend').append(legendItem);
+    legendItem = $('<br><span></span>').text('Data Ramalan'+' ').css('color', 'red');
+    $('#legend').append(legendItem);
+    
+  });
+</script>
   </body>
 </html>
