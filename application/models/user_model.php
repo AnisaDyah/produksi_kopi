@@ -66,6 +66,7 @@ class User_model extends CI_Model
         $query = $this->db->query("SELECT id_user_level FROM user WHERE id_user=$id_user ")->result();
         return $query;
     }
+
 }
 
   

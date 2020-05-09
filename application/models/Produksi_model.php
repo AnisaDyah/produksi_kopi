@@ -55,6 +55,20 @@ class Produksi_model extends CI_Model
         $query = $this->db->get('jenis_kopi');
         return $query->result();
     }
+
+    public function export_produksi($tgl_awal, $tgl_akhir)
+	{
+		$this->db->where('tanggal BETWEEN "'.$tgl_awal.'" AND "'.$tgl_akhir.'"');
+		$this->db->order_by('tanggal', 'ASC');
+		return $this->db->get('produksi_kopi')->result();
+    }
+    public function export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir)
+	{
+        $this->db->where('id_kopi',$id_kopi);
+		$this->db->where('tanggal BETWEEN "'.$tgl_awal.'" AND "'.$tgl_akhir.'"');
+		$this->db->order_by('tanggal', 'ASC');
+		return $this->db->get('produksi_kopi')->result();
+    }
   
 }
 

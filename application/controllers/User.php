@@ -58,6 +58,7 @@ class User extends BaseController
                     redirect('User');
                 }
             } else {
+                $this->session->set_flashdata('message', 'Data Harus Diisi Semua');
                 redirect('User/create');
                 
             }

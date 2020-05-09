@@ -55,6 +55,7 @@ class Produksi extends BaseController
                     redirect('produksi');
                 }
             } else {
+                $this->session->set_flashdata('message', 'Data Harus Diisi Semua');
                 redirect('produksi/create');
                 
             }
@@ -105,6 +106,33 @@ class Produksi extends BaseController
         helper_log("delete", "menghapus data produksi");
         redirect('produksi');
     }
+
+    public function laporan()
+        {
+            
+            $jenis_kopi = $this->Produksi_model->jenis_kopi();
+            $data['jenis_kopi']=$jenis_kopi;
+            $this->load->view('produksi/laporan_produksi',$data);
+            
+        }
+
+        //export produksi
+    
+    public function export_laporan()
+	{
+        
+        $id_kopi= $this->input->post('id_kopi');
+        $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
+        $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+        $jenis_kopi = $this->Produksi_model->jenis_kopi();
+        $data['jenis_kopi']=$jenis_kopi;
+        if($id_kopi == NULL){
+            $data['produksi'] = $this->Produksi_model->export_produksi($tgl_awal, $tgl_akhir);
+        }else{
+            $data['produksi'] = $this->Produksi_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
+        }
+		$this->load->view('produksi/excel_produksi', $data);
+	}
 
 }
 ?>

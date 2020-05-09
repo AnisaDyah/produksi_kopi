@@ -9,6 +9,7 @@ class Login extends CI_Controller
         $this->load->library('session');
         $this->load->helper('url', 'form');
         $this->load->model('Login_model');
+        $this->load->model('User_model');
     }
     public function index()
     {
@@ -39,12 +40,14 @@ class Login extends CI_Controller
         }
         else
         {
+            $this->session->set_flashdata('message', 'Username atau Password Salah');
             redirect('login');
         }
     }
 
     public function dashboard()
-    { 
+    {   
+        
         $this->load->view('dashboard');
     }
     public function logout()

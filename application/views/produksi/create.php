@@ -9,7 +9,13 @@
   <section class="content">
     <div class="row">
       <div class="col-xs-12">
-        <?php echo $this->session->flashdata('alert'); ?>
+      <?php $error=$this->session->flashdata('message');
+                  if($error) {?>
+                  <div class="alert alert-danger alert-dismissable">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <?php echo $error; ?>                    
+                  </div>
+                  <?php }?> 
       </div>
     </div>
     <div class="row">
@@ -28,11 +34,11 @@
             <div class="box-body">
               <div class="form-group">
                 <label>tanggal</label>
-                <input type="text" name="tanggal" class="form-control" id="datepicker" required>
+                <input type="text" name="tanggal" class="form-control" id="datepicker" >
               </div>
               <div class="form-group">
                 <label>Jumlah</label>
-                <input type="text" name="jumlah" class="form-control" required>
+                <input type="text" name="jumlah" class="form-control" >
               </div>
             
             <div class="form-group">

@@ -20,11 +20,13 @@
             <h3 class="box-title">
               &nbsp;
             </h3>
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
             <div class="box-tools pull-right">
               <a href="<?php echo site_url('Jenis_kopi/create'); ?>" type="button" class="btn btn-success">
                 <i class="fa fa-plus"> Tambah Jenis Kopi</i>
               </a>
             </div>
+            <?php endif;?>
           </div>
           <!-- /.box-header -->
           <div class="box-body">
@@ -33,7 +35,9 @@
                 <tr>
                   <th>ID Jenis Kopi</th>
                   <th>Jenis Kopi</th>
+                  <?php if($this->session->userdata('id_user_level') == '1'): ?>
                   <th>Action</th>
+                  <?php endif;?>
                 </tr>
               </thead>
               <tbody>
@@ -41,6 +45,7 @@
                 <tr>
                   <td><?php echo $key->id_kopi; ?></td>
                   <td><?php echo $key->jenis_kopi; ?></td>
+                  <?php if($this->session->userdata('id_user_level') == '1'): ?>
                   <td style="text-align: center">
                   <?php echo form_open('Jenis_kopi/destroy/'.$key->id_kopi)  ?>
                     <a href="<?php echo site_url('Jenis_kopi/edit/'.$key->id_kopi); ?>" title="Edit Nama Kategori" class="btn btn-primary">
@@ -50,6 +55,7 @@
                     <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah anda yakin?')"><i class="fa fa-close"></i></button>
                     <?php echo form_close() ?>
                   </td>
+                  <?php endif;?>
                 </tr>
               <?php endforeach ?>
               </tbody>

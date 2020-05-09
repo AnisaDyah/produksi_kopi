@@ -16,6 +16,26 @@ class Login_model extends CI_Model
         $this->db->where('password', $passwordx);
         return $this->db->get()->row();
     }
+
+    public function getTotal_kopi()
+    {
+        return $this->db->count_all('jenis_kopi');
+    }
+
+    public function getTotal_produksi()
+    {
+        return $this->db->count_all('jenis_kopi');
+    }
+
+    public function get_produksi(){
+        $query = $this->db->query("SELECT SUM(jumlah) as jumlah_produksi FROM produksi_kopi")->row_array();
+        return $query;
+    }
+
+    public function get_riwayat($id_user){
+        $query = $this->db->query("SELECT * FROM histori WHERE log_user='$id_user'")->result();
+        return $query;
+    }
 }
 
 ?>

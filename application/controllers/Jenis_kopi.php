@@ -52,6 +52,7 @@ class Jenis_kopi extends BaseController
                     redirect('jenis_kopi');
                 }
             } else {
+                $this->session->set_flashdata('message', 'Data Harus Diisi');
                 redirect('jenis_kopi/create');
                 
             }
