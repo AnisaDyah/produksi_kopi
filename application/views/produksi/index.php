@@ -45,7 +45,7 @@
               <?php foreach ($list as $key): ?>
                 <tr>
                   <td><?php echo $key->tanggal; ?></td>
-                  <td><?php echo $key->jumlah; ?></td>
+                  <td><?php echo $key->jumlah; ?> Kg</td>
                   <td>
                           <?php foreach ($jenis_kopi as $k)
                           {
