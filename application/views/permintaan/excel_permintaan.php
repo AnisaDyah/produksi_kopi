@@ -1,6 +1,6 @@
 <?php 
 	header("Content-type: application/vnd-ms-excel");
-	header("Content-Disposition: attachment; filename=LaporanProduksiKopi.xls");
+	header("Content-Disposition: attachment; filename=LaporanPermintaanKopi.xls");
  ?>
 <!DOCTYPE html>
 <html>
@@ -10,8 +10,8 @@
 <body>
 	<table border="1">
 	  <thead>
-    <tr>
-          <th colspan="3" > <b>Data Produksi Kopi</b></th>
+      <tr>
+          <th colspan="3"> <b>Data Permintaan Kopi</b></th>
           </tr>
 	    <tr>
           <th>Jenis Kopi</th>
@@ -20,10 +20,10 @@
 	    </tr>
 	  </thead>
 	  <tbody>
-	  <?php foreach ($produksi as $key): ?>
+	  <?php foreach ($permintaan as $key): ?>
         <tr>
           <td>
-                          <?php foreach ($jenis_kopi as $k)
+                          <?php foreach ($jenis_kopi2 as $k)
                           {
                             if($k->id_kopi == $key->id_kopi)
                             {?>

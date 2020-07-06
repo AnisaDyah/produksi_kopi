@@ -156,10 +156,32 @@
             </li> -->
             <li class="treeview">
               <a href="<?php echo base_url(); ?>Produksi" >
-                <i class="fa fa-table"></i>
+                <i class="fa fa-arrow-circle-down"></i>
                 <span>Data Produksi</span>
               </a>
             </li>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Permintaan" >
+                <i class="fa fa-arrow-circle-up"></i>
+                <span>Data Permintaan</span>
+              </a>
+            </li>
+            <?php if($this->session->userdata('id_user_level') == '1'): ?>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Permintaan_user/admin" >
+                <i class="fa fa-bell"></i>
+                <span>Request Permintaan User</span>
+              </a>
+            </li>
+            <?php endif; ?>
+            <?php if($this->session->userdata('id_user_level') == '2'): ?>
+            <li class="treeview">
+              <a href="<?php echo base_url(); ?>Permintaan_user" >
+                <i class="fa fa-shopping-cart"></i>
+                <span>Request Permintaan</span>
+              </a>
+            </li>
+            <?php endif; ?>
             <li class="treeview">
               <a href="<?php echo base_url(); ?>Produksi/laporan" >
                 <i class="fa fa-download"></i>

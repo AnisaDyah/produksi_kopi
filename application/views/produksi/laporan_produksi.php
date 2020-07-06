@@ -24,6 +24,16 @@
           <form role="form" action="<?php echo site_url('Produksi/export_laporan') ?>" method="post">
             <div class="box-body">
             <div class="form-group">
+                <label>Data yang akan dicetak: </label>
+                <select class="form-control select2" name="jenis_data">
+                    <option value="permintaan">Data Permintaan</option>
+                    <option value="produksi">Data Produksi</option>
+                  <!-- <?php foreach ($jenis_kopi as $key): ?>
+                    <option value="<?php echo $key->id_kopi; ?>"><?php echo $key->jenis_kopi; ?></option>
+                  <?php endforeach ?> -->
+                </select>
+              </div>
+            <div class="form-group">
                 <label>Produksi dari Kopi Jenis : </label>
                 <select class="form-control select2" name="id_kopi">
                     <option value="">semua jenis kopi</option>

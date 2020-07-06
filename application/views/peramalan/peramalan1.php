@@ -50,20 +50,7 @@
                   <?php endforeach ?>
                 </select>
               </div>
-              <div class="form-group">
-                <label>Konstanta</label>
-                <select class="form-control select2" name="konstanta">
-                  <option value="0.1">0.1</option>
-                  <option value="0.2">0.2</option>
-                  <option value="0.3">0.3</option>
-                  <option value="0.4">0.4</option>
-                  <option value="0.5">0.5</option>
-                  <option value="0.6">0.6</option>
-                  <option value="0.7">0.7</option>
-                  <option value="0.8">0.8</option>
-                  <option value="0.9">0.9</option>
-                </select>
-              </div>
+             
             </div>
             <div class="box-footer">
               <div class="form-group">

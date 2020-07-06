@@ -12,6 +12,7 @@ class Produksi extends BaseController
         $this->load->library('pagination');
         $this->load->library('form_validation');
         $this->load->model('Produksi_model');
+        $this->load->model('Permintaan_model');
 
     }
 
@@ -120,7 +121,7 @@ class Produksi extends BaseController
     
     public function export_laporan()
 	{
-        
+        if($this->input->post('jenis_data') == "produksi"){
         $id_kopi= $this->input->post('id_kopi');
         $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
         $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
@@ -131,7 +132,21 @@ class Produksi extends BaseController
         }else{
             $data['produksi'] = $this->Produksi_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
         }
-		$this->load->view('produksi/excel_produksi', $data);
+        $this->load->view('produksi/excel_produksi', $data);
+        }else{
+            //echo "hai";
+            $id_kopi= $this->input->post('id_kopi');
+            $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
+            $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+            $jenis_kopi2 = $this->Permintaan_model->jenis_kopi();
+            $data['jenis_kopi2']=$jenis_kopi2;
+            if($id_kopi == NULL){
+                $data['permintaan'] = $this->Permintaan_model->export_produksi($tgl_awal, $tgl_akhir);
+            }else{
+                $data['permintaan'] = $this->Permintaan_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
+            }
+            $this->load->view('permintaan/excel_permintaan', $data);
+        }
 	}
 
 }

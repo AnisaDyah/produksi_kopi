@@ -264,7 +264,7 @@ class Peramalan extends BaseController
            $mape[$i]=(($jumlah[$i]-$ft[$i])/$jumlah[$i])*100;
            $mse[$i]=($jumlah[$i]-$ft[$i])*($jumlah[$i]-$ft[$i]);
            }
-           $total_mape=$total_mape+$mape[$i];
+           $total_mape=$total_mape+abs($mape[$i]);
            $total_mse=$total_mse+$mse[$i];
        }
        
@@ -289,7 +289,7 @@ class Peramalan extends BaseController
             );
         }
         $data['response_databiasa']=json_encode($response_databiasa);
-        
+        echo var_dump($total_mape);        
         //echo var_dump($tahun);
         helper_log("peramalan", "melakukan peramalan dengan perhitungan");
         $this->load->view('peramalan/perhitungan2', $data);
@@ -314,7 +314,7 @@ class Peramalan extends BaseController
     public function peramalan2()
     {
         $id_kopi = $this->input->post('jenis_kopi');
-        $konstanta = $this->input->post('konstanta');
+        $konstanta = 0.1;
 
         $tanggal_ramal=date_format(date_create($this->input->post('tgl_ramal')), 'Y-m-d');
         $bulan_ramal=substr($tanggal_ramal,5,2);
