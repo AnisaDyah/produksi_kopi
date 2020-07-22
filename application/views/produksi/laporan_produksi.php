@@ -2,7 +2,7 @@
 <div class="content-wrapper" style="height: 700px">
   <section class="content-header">
     <h1>
-      Pilih Konstanta, Data awal dan Bulan yang ingin diramal
+      Pilih Jenis Kopi dan Periode yang ingin Dicetak
     </h1>
   </section>
 
@@ -20,8 +20,8 @@
               &nbsp;
             </h3>
           </div>
-          <!-- /.box-header -->
-          <form role="form" action="<?php echo site_url('Produksi/export_laporan') ?>" method="post">
+          <!-- /.box-header -->`
+          <form role="form" action="<?php echo site_url('Produksi/view_report') ?>" method="post">
             <div class="box-body">
             <div class="form-group">
                 <label>Data yang akan dicetak: </label>

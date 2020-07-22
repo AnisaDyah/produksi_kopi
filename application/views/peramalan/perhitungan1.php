@@ -66,6 +66,7 @@
                   <option value="0.8">0.8</option>
                   <option value="0.9">0.9</option>
                 </select>
+                <text>Nilai konstanta dapat ditentukan dengan cara melakukan percobaan berulang kali, dari hasil percobaan yang dilakukan  didapatkan  kesimpulan bahwa nilai konstanta yang optimal adalah = 0.1</text>
               </div>
             </div>
             <div class="box-footer">

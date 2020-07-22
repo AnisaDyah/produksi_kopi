@@ -121,10 +121,10 @@ class Produksi extends BaseController
     
     public function export_laporan()
 	{
-        if($this->input->post('jenis_data') == "produksi"){
-        $id_kopi= $this->input->post('id_kopi');
-        $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
-        $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+        if($this->session->userdata('jenis_data') == "produksi"){
+        $id_kopi= $this->session->userdata('id_kopi');
+        $tgl_awal = $this->session->userdata('tgl_awal');
+        $tgl_akhir = $this->session->userdata('tgl_akhir');
         $jenis_kopi = $this->Produksi_model->jenis_kopi();
         $data['jenis_kopi']=$jenis_kopi;
         if($id_kopi == NULL){
@@ -135,9 +135,9 @@ class Produksi extends BaseController
         $this->load->view('produksi/excel_produksi', $data);
         }else{
             //echo "hai";
-            $id_kopi= $this->input->post('id_kopi');
-            $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
-            $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+            $id_kopi= $this->session->userdata('id_kopi');
+            $tgl_awal = $this->session->userdata('tgl_awal');
+            $tgl_akhir = $this->session->userdata('tgl_akhir');
             $jenis_kopi2 = $this->Permintaan_model->jenis_kopi();
             $data['jenis_kopi2']=$jenis_kopi2;
             if($id_kopi == NULL){
@@ -146,6 +146,51 @@ class Produksi extends BaseController
                 $data['permintaan'] = $this->Permintaan_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
             }
             $this->load->view('permintaan/excel_permintaan', $data);
+        }
+    }
+    
+    public function view_report()
+	{
+        if($this->input->post('jenis_data') == "produksi"){
+        $id_kopi= $this->input->post('id_kopi');
+        $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
+        $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+        $jenis_kopi = $this->Produksi_model->jenis_kopi();
+
+        $log = [
+            'id_kopi' => $id_kopi,
+            'tgl_awal' => $tgl_awal,
+            'tgl_akhir' => $tgl_akhir,
+            'jenis_data' => $this->input->post('jenis_data')
+        ];
+        $this->session->set_userdata($log);     
+
+        $data['jenis_kopi']=$jenis_kopi;
+        if($id_kopi == NULL){
+            $data['produksi'] = $this->Produksi_model->export_produksi($tgl_awal, $tgl_akhir);
+        }else{
+            $data['produksi'] = $this->Produksi_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
+        }
+        $this->load->view('produksi/view_report', $data);
+        }else{
+            //echo "hai";
+            $id_kopi= $this->input->post('id_kopi');
+            $tgl_awal = date_format(date_create($this->input->post('tgl_awal')), 'Y-m-d');
+            $tgl_akhir = date_format(date_create($this->input->post('tgl_akhir')), 'Y-m-d');
+            $jenis_kopi2 = $this->Permintaan_model->jenis_kopi();
+            $log = [
+                'id_kopi' => $id_kopi,
+                'tgl_awal' => $tgl_awal,
+                'tgl_akhir' => $tgl_akhir,
+                'jenis_data' => $this->input->post('jenis_data')
+            ];
+            $data['jenis_kopi2']=$jenis_kopi2;
+            if($id_kopi == NULL){
+                $data['permintaan'] = $this->Permintaan_model->export_produksi($tgl_awal, $tgl_akhir);
+            }else{
+                $data['permintaan'] = $this->Permintaan_model->export_produksi_byjenis($id_kopi,$tgl_awal, $tgl_akhir);
+            }
+            $this->load->view('permintaan/view_report', $data);
         }
 	}
 
